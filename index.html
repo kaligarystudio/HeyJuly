@@ -102,6 +102,54 @@ body {
     color: #fff;
     font-size: 20px;
 }
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    /* Glow elegante */
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.2),
+        0 0 40px rgba(255,255,255,0.15),
+        0 0 60px rgba(255,255,255,0.1);
+
+    transition: 0.4s;
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+/* Hover más intenso */
+.logo:hover {
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.4),
+        0 0 60px rgba(255,255,255,0.3),
+        0 0 100px rgba(255,255,255,0.2);
+}
+
+/* Animación sutil premium */
+@keyframes glowPulse {
+    0% {
+        box-shadow:
+            0 0 15px rgba(255,255,255,0.15),
+            0 0 30px rgba(255,255,255,0.1);
+    }
+    50% {
+        box-shadow:
+            0 0 30px rgba(255,255,255,0.3),
+            0 0 60px rgba(255,255,255,0.2);
+    }
+    100% {
+        box-shadow:
+            0 0 15px rgba(255,255,255,0.15),
+            0 0 30px rgba(255,255,255,0.1);
+    }
+}
 </style>
 
 </head>
