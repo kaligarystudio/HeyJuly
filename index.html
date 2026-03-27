@@ -6,150 +6,193 @@
 <title>HEY JULY - Marketing Digital</title>
 
 <style>
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #0f0f0f;
+    background: #0b0f0f;
     color: #ffffff;
 }
 
-/* HERO */
+/* HERO PRO */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-                url('background.jpg') center/cover no-repeat;
+    position: relative;
+    background: radial-gradient(circle at 20% 20%, #1f4037, #0f2027 60%, #000);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 48px;
-    letter-spacing: 2px;
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(40px);
+    background: rgba(0,0,0,0.5);
 }
 
-.hero p {
-    font-size: 18px;
+/* CONTENIDO */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* LOGO PRO */
+.logo-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.logo-glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0,255,200,0.45), transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(30px);
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    object-fit: cover;
+    box-shadow: 0 0 25px rgba(0,255,200,0.35);
+}
+
+/* TEXTOS */
+.title {
+    font-size: 42px;
+    letter-spacing: 4px;
+    margin: 10px 0;
+}
+
+.subtitle {
     color: #ccc;
+    margin-bottom: 25px;
+}
+
+/* BOTONES */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 10px;
+    padding: 12px 28px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
+/* CTA */
 .btn-primary {
-    background: #ffffff;
+    background: linear-gradient(135deg, #00ffc8, #00bfa6);
     color: #000;
 }
 
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0,255,200,0.7);
+}
+
+/* GLASS */
 .btn-outline {
-    border: 1px solid #fff;
+    border: 1px solid rgba(255,255,255,0.3);
     color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.1);
 }
 
 /* SECTIONS */
 .section {
-    padding: 60px 10%;
+    padding: 70px 10%;
 }
 
 .section h2 {
     text-align: center;
     margin-bottom: 40px;
+    font-size: 28px;
 }
 
 /* CARDS */
 .cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
 }
 
 .card {
-    background: #1a1a1a;
+    background: linear-gradient(145deg, #141414, #1c1c1c);
     padding: 25px;
     border-radius: 15px;
     width: 300px;
     transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0,255,200,0.2);
 }
 
 .price {
     font-size: 22px;
     margin-top: 10px;
-    color: #fff;
+    color: #00ffc8;
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
     padding: 30px;
-    border-top: 1px solid #333;
+    border-top: 1px solid #222;
 }
 
 .social a {
     margin: 0 10px;
     text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-}
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    color: #ccc;
+    transition: 0.3s;
 }
 
-.logo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-
-    /* Glow elegante */
-    box-shadow:
-        0 0 20px rgba(255,255,255,0.2),
-        0 0 40px rgba(255,255,255,0.15),
-        0 0 60px rgba(255,255,255,0.1);
-
-    transition: 0.4s;
-    animation: glowPulse 3s infinite ease-in-out;
+.social a:hover {
+    color: #00ffc8;
 }
 
-/* Hover más intenso */
-.logo:hover {
-    box-shadow:
-        0 0 25px rgba(255,255,255,0.4),
-        0 0 60px rgba(255,255,255,0.3),
-        0 0 100px rgba(255,255,255,0.2);
-}
-
-/* Animación sutil premium */
-@keyframes glowPulse {
+/* ANIMACIÓN */
+@keyframes pulseGlow {
     0% {
-        box-shadow:
-            0 0 15px rgba(255,255,255,0.15),
-            0 0 30px rgba(255,255,255,0.1);
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.6;
     }
     50% {
-        box-shadow:
-            0 0 30px rgba(255,255,255,0.3),
-            0 0 60px rgba(255,255,255,0.2);
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
     }
     100% {
-        box-shadow:
-            0 0 15px rgba(255,255,255,0.15),
-            0 0 30px rgba(255,255,255,0.1);
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.6;
     }
 }
+
 </style>
 
 </head>
@@ -159,16 +202,23 @@ body {
 <!-- HERO -->
 <section class="hero">
 
-    <div class="logo-container">
-    <img src="logoJ.png" alt="HEY JULY Logo" class="logo">
-</div>
-    <div>
-      
-        <p>Marketing Digital & Desarrollo Creativo</p>
+<div class="hero-content">
 
-        <a href="https://wa.me/5215510922854" class="btn btn-primary">Contáctanos</a>
-        <a href="https://www.instagram.com/hey.july_ec?" class="btn btn-outline">Ver Instagram</a>
+    <div class="logo-wrapper">
+        <div class="logo-glow"></div>
+        <img src="logoJ.png" alt="HEY JULY Logo" class="logo">
     </div>
+
+    <h1 class="title">HEY JULY</h1>
+    <p class="subtitle">Marketing Digital & Desarrollo Creativo</p>
+
+    <div class="buttons">
+        <a href="https://wa.me/5215510922854" class="btn btn-primary">Contáctanos</a>
+        <a href="https://www.instagram.com/hey.july_ec?" class="btn btn-outline">Instagram</a>
+    </div>
+
+</div>
+
 </section>
 
 <!-- DISEÑO -->
@@ -185,7 +235,7 @@ body {
 
 <div class="card">
 <h3>Intermedio</h3>
-<p>Identidad visual + flyers + banner + correcciones</p>
+<p>Identidad visual + flyers + banner</p>
 <div class="price">$6,000 MXN</div>
 </div>
 
@@ -206,19 +256,19 @@ body {
 
 <div class="card">
 <h3>Básico</h3>
-<p>2 redes<br>4 posts/semana</p>
+<p>2 redes · 4 posts/semana</p>
 <div class="price">$2,899 MXN/mes</div>
 </div>
 
 <div class="card">
 <h3>Intermedio</h3>
-<p>3 redes + reels + stories + reporte</p>
+<p>3 redes + reels + stories</p>
 <div class="price">$7,999 MXN/mes</div>
 </div>
 
 <div class="card">
 <h3>Premium</h3>
-<p>Contenido avanzado + análisis mensual</p>
+<p>Contenido avanzado + análisis</p>
 <div class="price">$18,000 MXN/mes</div>
 </div>
 
@@ -233,26 +283,26 @@ body {
 
 <div class="card">
 <h3>Básico</h3>
-<p>Landing + contacto + responsivo</p>
+<p>Landing + contacto</p>
 <div class="price">$8,000 MXN</div>
 </div>
 
 <div class="card">
 <h3>Profesional</h3>
-<p>5 secciones + SEO básico</p>
+<p>5 secciones + SEO</p>
 <div class="price">$25,000 MXN</div>
 </div>
 
 <div class="card">
 <h3>Premium</h3>
-<p>E-commerce + pagos + mantenimiento</p>
+<p>E-commerce completo</p>
 <div class="price">$60,000 MXN</div>
 </div>
 
 </div>
 </section>
 
-<!-- TODO INCLUIDO -->
+<!-- TODO -->
 <section class="section">
 <h2>Paquetes Todo Incluido</h2>
 
@@ -260,19 +310,19 @@ body {
 
 <div class="card">
 <h3>Básico</h3>
-<p>Identidad + redes + web básica</p>
+<p>Identidad + redes + web</p>
 <div class="price">$15,000 MXN</div>
 </div>
 
 <div class="card">
 <h3>Intermedio</h3>
-<p>Diseño + redes + web profesional</p>
+<p>Diseño + redes + web pro</p>
 <div class="price">$40,000 MXN</div>
 </div>
 
 <div class="card">
 <h3>Premium</h3>
-<p>Branding + redes premium + web avanzada</p>
+<p>Branding + estrategia completa</p>
 <div class="price">$80,000 MXN</div>
 </div>
 
